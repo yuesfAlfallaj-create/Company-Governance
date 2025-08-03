@@ -2,16 +2,59 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>بوابة الحوكمة</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>محرك البحث للأنظمة</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      padding: 40px;
+      background-color: #f9f9f9;
+    }
+    input[type="text"] {
+      width: 60%;
+      padding: 10px;
+      font-size: 18px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      background-color: #1a73e8;
+      color: white;
+      border-radius: 6px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    h1 {
+      color: #333;
+    }
+  </style>
 </head>
 <body>
-  <h1>منصة الحوكمة والأنظمة</h1>
-  <p>مرحبًا بك في منصة الحوكمة، وجهتك الأولى للربط بين اللوائح والتنظيمات والجهات الرسمية في السعودية.</p>
-  <ul>
-    <li><a href="https://cma.org.sa/RulesRegulations/Pages/default.aspx" target="_blank">📜 هيئة السوق المالية</a></li>
-    <li><a href="https://www.ia.gov.sa/ar-sa/Regulations" target="_blank">🛡️ هيئة التأمين</a></li>
-    <li><a href="https://mci.gov.sa/ar/Regulations/Pages/default.aspx" target="_blank">🏛️ وزارة التجارة</a></li>
-  </ul>
+  <h1>محرك البحث في الأنظمة واللوائح</h1>
+  <p>أدخل الكلمة أو الموضوع الذي تبحث عنه، وسيتم عرض النتائج من الجهات الرسمية</p>
+  <input type="text" id="query" placeholder="مثال: الحوكمة، نصاب الجمعية، الإفصاح..." />
+  <br><br>
+  <button onclick="searchCMA()">هيئة السوق المالية 📜</button>
+  <button onclick="searchIA()">هيئة التأمين 🛡️</button>
+  <button onclick="searchMC()">وزارة التجارة 🏛️</button>
+
+  <script>
+    function searchCMA() {
+      const q = document.getElementById("query").value;
+      window.open(`https://cma.org.sa/search/Pages/default.aspx?k=${encodeURIComponent(q)}`, "_blank");
+    }
+    function searchIA() {
+      const q = document.getElementById("query").value;
+      window.open(`https://ia.gov.sa/ar-sa/SearchCenter/Pages/Results.aspx?k=${encodeURIComponent(q)}`, "_blank");
+    }
+    function searchMC() {
+      const q = document.getElementById("query").value;
+      window.open(`https://mci.gov.sa/ar/pages/search.aspx?k=${encodeURIComponent(q)}`, "_blank");
+    }
+  </script>
 </body>
 </html>
